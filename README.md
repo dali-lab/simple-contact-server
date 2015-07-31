@@ -9,7 +9,7 @@ A simple contact form for static websites.  This is a simple Flask app that uses
 -------------------
 
     bash
-    $ git clone https://github.com/ousenko/simple-contact-form.git
+    $ git clone git@github.com:dali-lab/simple-contact-server.git
     $ heroku create <YOUR_HEROKU_APP>
     $ heroku addons:create sendgrid:starter
     $ heroku config:set USER_EMAIL=<YOUR EMAIL>
