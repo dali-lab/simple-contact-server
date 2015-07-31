@@ -1,7 +1,7 @@
 Simple Server for Static Website Contact Forms
 ----------------------------------
 
-A simple contact form for static websites.  This is a simple Flask app that uses Heroku with the Sengrid addon.  Based on Mandrill version from: https://github.com/ousenko/simple-contact-form
+A simple contact form for static websites.  This is a simple Flask app that uses Heroku with the Sendgrid addon.  Based on Mandrill version from: https://github.com/ousenko/simple-contact-form
 
 
 
@@ -15,6 +15,8 @@ A simple contact form for static websites.  This is a simple Flask app that uses
     $ heroku config:set USER_EMAIL=<YOUR EMAIL>
     $ heroku config:set USER_SITE=<YOUR SITE>
     $ heroku config:set SUCCESS_PAGE=<A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
+
+note heroku automatically configures the sendgrid username and password
 
 2. Front-end setup
 -------------------
