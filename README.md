@@ -15,8 +15,8 @@ $ git clone git@github.com:dali-lab/simple-contact-server.git
 $ heroku create <YOUR_HEROKU_APP>
 $ heroku addons:create sendgrid:starter
 $ heroku config:set USER_EMAIL=<YOUR EMAIL>
-$ heroku config:set USER_SITE=<YOUR SITE>
-$ heroku config:set SUCCESS_PAGE=<A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
+$ heroku config:set USER_SITE=<http://YOUR SITE>
+$ heroku config:set SUCCESS_PAGE=<http://A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
 $ git push heroku master
 ```
 
@@ -33,7 +33,7 @@ to test you can run this:
 Your form html can be something like this:
 
 ```html
-<form action="https://<YOUR_HEROKU_APP>.herokuapp.com/send">
+<form action="https://<YOUR_HEROKU_APP>.herokuapp.com/send" method="post">
     Email: <input type="text" name="name"><br>
     Name: <input type="text" name="email"><br>
     Subject: <input type="text" name="subject"><br>
@@ -41,3 +41,6 @@ Your form html can be something like this:
     <input type="submit" value="Send Message">
 </form> 
 ```
+
+you do need all of name,email,subject,message in your form
+
