@@ -13,21 +13,21 @@ def index():
 
 @app.route('/send', methods=['POST'])
 def forward():
-    email_subject = 'Message from {}, Subject:{}'.format(request.form['name'], request.form['subject'])
-    email_to = os.environ['USER_EMAIL']
-    email_from = request.form['email']
-    email_txt = request.form['message']
-
-    message = sendgrid.Mail()
-    message.add_to(email_to)
-    message.set_subject(email_subject)
-    message.set_text(email_txt)
-    message.set_from(email_from)
-
-    status, msg = sengrid_client.send(message)
-
-    if status != 'sent':
-        abort(500)
+    # email_subject = 'Message from ' + request.form['name'] + ' about ' + request.form['subject']
+    # email_to = os.environ['USER_EMAIL']
+    # email_from = request.form['email']
+    # email_txt = request.form['message']
+    #
+    # message = sendgrid.Mail()
+    # message.add_to(email_to)
+    # message.set_subject(email_subject)
+    # message.set_text(email_txt)
+    # message.set_from(email_from)
+    #
+    # status, msg = sengrid_client.send(message)
+    #
+    # if status != 'sent':
+    #     abort(500)
     return redirect(os.environ['SUCCESS_PAGE'])
 
 
