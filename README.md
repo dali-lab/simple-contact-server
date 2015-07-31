@@ -5,7 +5,7 @@ A simple contact form for static websites.  This is a simple Flask app that uses
 
 0. Create account on heroku.com and download heroku toolbelt
 -------------------
-(https://toolbelt.heroku.com/)[https://toolbelt.heroku.com/]
+https://toolbelt.heroku.com/
 
 1. Create a heroku app and add sendgrid
 -------------------
