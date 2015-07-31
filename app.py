@@ -1,11 +1,10 @@
 import os
 
-from mandrill import Mandrill
+import sendgrid
 from flask import Flask, request, redirect, abort
 
 app = Flask(__name__)
-mandrill_client = Mandrill(os.environ['MANDRILL_API_KEY'])
-
+sengrid_client =  sendgrid.SendGridClient(os.environ['SENDGRID_USERNAME'], os.environ['SENDGRID_PASSWORD'])
 
 @app.route('/')
 def index():
@@ -14,14 +13,20 @@ def index():
 
 @app.route('/send', methods=['POST'])
 def forward():
-    message = {
-               'to': [{'email': os.environ['USER_EMAIL']}],
-               'from_email': request.form['email'],
-               'subject': 'Message from {}, Subject:{}'.format(request.form['name'], request.form['subject']),
-               'text': request.form['message'],
-              }
-    result = mandrill_client.messages.send(message=message)
-    if result[0]['status'] != 'sent':
+    email_subject = 'Message from {}, Subject:{}'.format(request.form['name'], request.form['subject'])
+    email_to = os.environ['USER_EMAIL']
+    email_from = request.form['email']
+    email_txt = request.form['message']
+
+    message = sendgrid.Mail()
+    message.add_to(email_to)
+    message.set_subject(email_subject)
+    message.set_text(email_txt)
+    message.set_from(email_from)
+
+    status, msg = sengrid_client.send(message)
+
+    if status != 'sent':
         abort(500)
     return redirect(os.environ['SUCCESS_PAGE'])
 
@@ -29,4 +34,3 @@ def forward():
 @app.errorhandler(500)
 def error(e):
     return ('Sorry, something went wrong! %s - %s' % (e.__class__, e), 500)
-
