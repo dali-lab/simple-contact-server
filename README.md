@@ -10,13 +10,15 @@ A simple contact form for static websites.  This is a simple Flask app that uses
 1. Create a heroku app and add sendgrid
 -------------------
 
-    $ git clone git@github.com:dali-lab/simple-contact-server.git
-    $ heroku create <YOUR_HEROKU_APP>
-    $ heroku addons:create sendgrid:starter
-    $ heroku config:set USER_EMAIL=<YOUR EMAIL>
-    $ heroku config:set USER_SITE=<YOUR SITE>
-    $ heroku config:set SUCCESS_PAGE=<A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
-    $ git push heroku master
+```bash
+$ git clone git@github.com:dali-lab/simple-contact-server.git
+$ heroku create <YOUR_HEROKU_APP>
+$ heroku addons:create sendgrid:starter
+$ heroku config:set USER_EMAIL=<YOUR EMAIL>
+$ heroku config:set USER_SITE=<YOUR SITE>
+$ heroku config:set SUCCESS_PAGE=<A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
+$ git push heroku master
+```
 
 note heroku automatically configures the sendgrid username and password
 
@@ -30,11 +32,12 @@ to test you can run this:
 
 Your form html can be something like this:
 
-    <form action="https://<YOUR_HEROKU_APP>.herokuapp.com/send">
-      Email: <input type="text" name="name"><br>
-      Name: <input type="text" name="email"><br>
-      Subject: <input type="text" name="subject"><br>
-      Message: <textarea name="message" cols="40" rows="5"></textarea>
-      <input type="submit" value="Send Message">
-    </form> 
-
+```html
+<form action="https://<YOUR_HEROKU_APP>.herokuapp.com/send">
+    Email: <input type="text" name="name"><br>
+    Name: <input type="text" name="email"><br>
+    Subject: <input type="text" name="subject"><br>
+    Message: <textarea name="message" cols="40" rows="5"></textarea>
+    <input type="submit" value="Send Message">
+</form> 
+```
