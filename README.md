@@ -16,8 +16,14 @@ A simple contact form for static websites.  This is a simple Flask app that uses
     $ heroku config:set USER_EMAIL=<YOUR EMAIL>
     $ heroku config:set USER_SITE=<YOUR SITE>
     $ heroku config:set SUCCESS_PAGE=<A SUCCESS PAGE TO REDIRECT USER TO AFTER THE MESSAGE IS SENT>
+    $ git push heroku master
 
 note heroku automatically configures the sendgrid username and password
+
+to test you can run this:
+
+    $ curl --data "name=somename&email=name@domain.com&subject=test&message=testing more more more" https://<YOUR_HEROKU_APP>.herokuapp.com/send
+
 
 2. Front-end setup
 -------------------
